@@ -1,26 +1,25 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Header from "./Header";
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <Header title="Header" />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Yusron</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+
+  handleClick() {
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>{this.state.count}</p>
+        <button onClick={() => this.handleClick()}>Button</button>
+      </div>
+    );
+  }
 }
 
 export default App;
